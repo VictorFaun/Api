@@ -38,6 +38,16 @@ const productSchema = new mongoose.Schema(
         ref: "Role",
       },
     ],
+    clubs: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Club",
+      },
+    ],
+    club: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Club",
+    },
   },
   {
     timestamps: true,

@@ -1,12 +1,8 @@
 import mongoose from "mongoose";
 
-const functionalitySchema = new mongoose.Schema(
+const clubSchema = new mongoose.Schema(
     {
         name: {
-            type: String,
-            unique: false,
-        },
-        route: {
             type: String,
             unique: true,
         },
@@ -18,10 +14,18 @@ const functionalitySchema = new mongoose.Schema(
             type: String,
             required: false,
         },
+        icon: {
+            type: String,
+            required: false,
+        },
+        front: {
+            type: String,
+            required: false,
+        },
         state: {
-          type: Number,
-          unique: false,
-          default: 1
+            type: Number,
+            unique: false,
+            default: 1
         },
     },
     {
@@ -30,4 +34,4 @@ const functionalitySchema = new mongoose.Schema(
     }
 );
 
-export default mongoose.model("Functionality", functionalitySchema);
+export default mongoose.model("Club", clubSchema);

@@ -27,6 +27,11 @@ export const createFunctionalities = async () => {
       new Functionality({ name: "Obtener usuario", route: "GET:/api/users/:id/", description: "Obtiene el usuario a partir de un id" }).save(),
       new Functionality({ name: "Crear usuario", route: "POST:/api/users/", description: "Crea un nuevo usuario" }).save(),
       new Functionality({ name: "Actualiza usuario", route: "PUT:/api/users/:id/", description: "Actualiza un usuario a partir de un id" }).save(),
+      
+      new Functionality({ name: "Obtener clubes", route: "GET:/api/clubs/", description: "Obtiene el listado completo de todos los clubes disponibles" }).save(),
+      new Functionality({ name: "Obtener club", route: "GET:/api/clubs/:id/", description: "Obtiene el club a partir de un id" }).save(),
+      new Functionality({ name: "Crear club", route: "POST:/api/clubs/", description: "Crea un nuevo club" }).save(),
+      new Functionality({ name: "Actualiza club", route: "PUT:/api/clubs/:id/", description: "Actualiza un club a partir de un id" }).save(),
     ]);
 
     console.log(values);

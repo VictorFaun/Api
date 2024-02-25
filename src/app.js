@@ -9,6 +9,7 @@ import usersRoutes from "./routes/user.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 import roleRoutes from "./routes/role.routes.js";
 import functionalityRoutes from "./routes/functionality.routes.js"
+import clubRoutes from "./routes/club.routes.js"
 
 const app = express();
 
@@ -33,5 +34,6 @@ app.use("/api/users", usersRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/roles", roleRoutes);
 app.use("/api/functionalities", functionalityRoutes);
+app.use("/api/clubs", clubRoutes);
 
 export default app;
