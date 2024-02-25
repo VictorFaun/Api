@@ -26,7 +26,7 @@ export const getRoles = async (req, res) => {
 
     // Realizar la búsqueda en la base de datos con los filtros
     const roles = await Role.find(filter).populate({
-      path: ["functionalities","creator"],
+      path: "functionalities",
       match: filterFunctionality,
     });
 
@@ -43,7 +43,7 @@ export const getRole = async (req, res) => {
     if (functionalityState !== undefined) filterFunctionality.state = functionalityState;
 
     const roleId = req.params.id;
-    const role = await Role.findOne({ _id: roleId }).populate({ path: ["functionalities","creator"], match: filterFunctionality })
+    const role = await Role.findOne({ _id: roleId }).populate({ path: "functionalities", match: filterFunctionality })
     if (!role) {
       return res.status(404).json({ error: "Role not found" });
     }
@@ -56,7 +56,7 @@ export const getRole = async (req, res) => {
 export const createRole = async (req, res) => {
   try {
     const { name, functionalities } = req.body;
-    const newRole = await Role.create({ name, functionalities, creator: req.userId }).populate({ path: ["functionalities","creator"]});
+    const newRole = await Role.create({ name, functionalities, creator: req.userId }).populate({ path: "functionalities"});
     return res.status(201).json(newRole);
   } catch (error) {
     return res.status(500).json({ error: "Internal Server Error" });
@@ -81,7 +81,7 @@ export const updateRole = async (req, res) => {
 
     const updatedRole = await Role.findByIdAndUpdate(roleId, req.body, {
       new: true,
-    }).populate({ path: ["functionalities","creator"] });
+    }).populate({ path: "functionalities" });
 
     if (!updatedRole) {
       return res.status(404).json({ error: "Role not found" });
